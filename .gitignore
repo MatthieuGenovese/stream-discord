@@ -1,0 +1,4 @@
+build/
+.vs/
+*.user
+third_party/imgui/

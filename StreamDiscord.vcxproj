@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C8A1D1ED-46F8-4652-9E4D-630737CC74AF}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup>
+    <OutDir>$(ProjectDir)build\</OutDir>
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(ProjectDir)build\obj\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)third_party\dear_imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;NOMINMAX;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A00000B;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>d3dcompiler.lib;dwmapi.lib;d3d11.lib;dxgi.lib;windowsapp.lib;ole32.lib;mmdevapi.lib;user32.lib;gdi32.lib;comdlg32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="third_party\dear_imgui\imgui.cpp" />
+    <ClCompile Include="third_party\dear_imgui\imgui_draw.cpp" />
+    <ClCompile Include="third_party\dear_imgui\imgui_tables.cpp" />
+    <ClCompile Include="third_party\dear_imgui\imgui_widgets.cpp" />
+    <ClCompile Include="third_party\dear_imgui\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="third_party\dear_imgui\backends\imgui_impl_dx11.cpp" />
+    <ClCompile Include="src\application_ui.cpp" />
+    <ClCompile Include="src\application.cpp" />
+    <ClCompile Include="src\audio_capture.cpp" />
+    <ClCompile Include="src\audio_devices.cpp" />
+    <ClCompile Include="src\interface.cpp" />
+    <ClCompile Include="src\settings.cpp" />
+    <ClCompile Include="src\text.cpp" />
+    <ClCompile Include="src\video_capture.cpp" />
+    <ClCompile Include="src\window_sources.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\application.h" />
+    <ClInclude Include="src\audio_capture.h" />
+    <ClInclude Include="src\audio_devices.h" />
+    <ClInclude Include="src\common.h" />
+    <ClInclude Include="src\interface.h" />
+    <ClInclude Include="src\settings.h" />
+    <ClInclude Include="src\text.h" />
+    <ClInclude Include="src\video_capture.h" />
+    <ClInclude Include="src\window_sources.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
